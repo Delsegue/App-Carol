@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Surpresa</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #f7f1df, #efe3bd);
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 12px 35px rgba(120, 90, 20, 0.18);
+      width: 100%;
+      max-width: 420px;
+      text-align: center;
+      border: 1px solid #ead79a;
+    }
+
+    h1 {
+      color: #b38a2f;
+      margin-top: 0;
+    }
+
+    p {
+      color: #5f5435;
+      line-height: 1.6;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      margin-top: 12px;
+      border: 1px solid #d8c27a;
+      border-radius: 12px;
+      font-size: 16px;
+      box-sizing: border-box;
+      background: #fffdf7;
+      color: #5a4a1f;
+    }
+
+    .hint {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #7a6a3a;
+      background: #fbf5df;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ead79a;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 16px;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #cfa63a, #a97c1f);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(169, 124, 31, 0.25);
+    }
+
+    button:hover {
+      filter: brightness(1.03);
+    }
+
+    #erro {
+      margin-top: 12px;
+      color: #a94442;
+      font-weight: bold;
+      min-height: 20px;
+    }
+
+    #mensagem {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div id="telaSenha">
+      <h1>Tenho uma surpresa</h1>
+      <p>Digite a senha para continuar</p>
+
+      <input type="password" id="senha" placeholder="Digite a senha" />
+
+      <div class="hint">
+        <strong>Dica:</strong> o dia em que tudo se iniciou (6 dígitos)
+      </div>
+
+      <button onclick="verificarSenha()">Entrar</button>
+
+      <div id="erro"></div>
+    </div>
+
+    <div id="mensagem">
+      <h1>Muito espertinha</h1>
+      <p>
+        Só para te lembrar o quanto gosto de ti.
+      </p>
+      <p>
+        Será um prazer inenarrável dividir a vida contigo.
+      </p>
+      <p>Vc aceita?</p>
+    </div>
+  </div>
+
+  <script>
+    const senhaCorreta = "191225";
+
+    function verificarSenha() {
+      const senha = document.getElementById("senha").value.trim();
+      const erro = document.getElementById("erro");
+      const telaSenha = document.getElementById("telaSenha");
+      const mensagem = document.getElementById("mensagem");
+
+      if (senha === senhaCorreta) {
+        telaSenha.style.display = "none";
+        mensagem.style.display = "block";
+      } else {
+        erro.textContent = "Senha incorreta";
+      }
+    }
+  </script>
+</body>
+</html>
