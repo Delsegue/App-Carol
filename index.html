@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Surpresa</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffd9e8, #fff4f8);
+      font-family: Arial, sans-serif;
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+      width: 90%;
+      max-width: 360px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #d94f85;
+      margin-top: 0;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      margin-top: 12px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    .hint {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #777;
+      background: #fff3f8;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 16px;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      background: #e85d93;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #d94f85;
+    }
+
+    #erro {
+      margin-top: 12px;
+      color: #cc3b3b;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Tenho uma surpresa</h1>
+    <p>Digite a senha para continuar</p>
+
+    <input type="password" id="senha" placeholder="Digite a senha" />
+
+    <div class="hint">
+      <strong>Dica:</strong> o dia em que tudo se iniciou (6 dígitos)
+    </div>
+
+    <button onclick="verificarSenha()">Entrar</button>
+
+    <div id="erro"></div>
+  </div>
+
+  <script>
+    const senhaCorreta = "191225";
+
+    function verificarSenha() {
+      const senha = document.getElementById("senha").value;
+      const erro = document.getElementById("erro");
+
+      if (senha === senhaCorreta) {
+        window.location.href = "mensagem.html";
+      } else {
+        erro.textContent = "Senha incorreta";
+      }
+    }
+  </script>
+</body>
+</html>
